@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location-Based Image Display</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #000;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100vh;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <img id="locationImage" src="" alt="Location-based image">
+
+    <script>
+        /* 
+         * LOCATION-BASED IMAGE DISPLAY
+         * =============================
+         * This website displays different images based on the visitor's IP address location.
+         * 
+         * HOW IT WORKS:
+         * 1. Uses ipapi.co free API to detect visitor's location from their IP address
+         * 2. Checks the visitor's region/state and country
+         * 3. Displays the appropriate image based on their location
+         * 
+         * LOCATION RULES:
+         * - Canada (anywhere): Shows IMAGE_CANADA
+         * - New York State or Brooklyn: Shows IMAGE_NY
+         * - Chicago/Illinois: Shows IMAGE_CHICAGO
+         * - Everywhere else: Shows IMAGE_DEFAULT
+         * 
+         * HOW TO CHANGE THE IMAGES:
+         * ==========================
+         * Simply replace the image URLs below with your own image URLs.
+         * You can use:
+         * - Direct image URLs (e.g., https://example.com/image.jpg)
+         * - Relative paths if hosting images in the same repository (e.g., ./images/photo1.jpg)
+         * - Image hosting services like Imgur, Cloudinary, etc.
+         * 
+         * TO CHANGE THE DEFAULT IMAGE:
+         * Change the IMAGE_DEFAULT URL below to a different image URL
+         */
+
+        // ===== IMAGE CONFIGURATION =====
+        // Replace these URLs with your actual image URLs
+        
+        const IMAGE_CANADA = 'https://picsum.photos/800/600?random=1'; // Canada (Montreal or anywhere in Canada)
+        const IMAGE_NY = 'https://picsum.photos/800/600?random=2';     // New York State or Brooklyn
+        const IMAGE_CHICAGO = 'https://picsum.photos/800/600?random=3'; // Chicago/Illinois
+        const IMAGE_DEFAULT = 'https://picsum.photos/800/600?random=1'; // Default (everywhere else) - currently same as Canada
+        
+        // TO CHANGE DEFAULT: Replace IMAGE_DEFAULT with a different URL, for example:
+        // const IMAGE_DEFAULT = 'https://picsum.photos/800/600?random=4';
+        
+        // ===== END IMAGE CONFIGURATION =====
+
+        async function detectLocationAndDisplayImage() {
+            try {
+                // Fetch IP geolocation data from ipapi.co (free, no API key needed)
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                
+                const country = data.country_name;
+                const region = data.region;
+                const city = data.city;
+                
+                console.log('Detected location:', { country, region, city }); // For debugging
+                
+                let imageToDisplay = IMAGE_DEFAULT;
+                
+                // Check location rules
+                if (country === 'Canada') {
+                    imageToDisplay = IMAGE_CANADA;
+                } else if (region === 'New York' || city === 'Brooklyn') {
+                    imageToDisplay = IMAGE_NY;
+                } else if (city === 'Chicago' || region === 'Illinois') {
+                    imageToDisplay = IMAGE_CHICAGO;
+                }
+                
+                // Display the image
+                document.getElementById('locationImage').src = imageToDisplay;
+                
+            } catch (error) {
+                console.error('Error detecting location:', error);
+                // Fallback to default image if geolocation fails
+                document.getElementById('locationImage').src = IMAGE_DEFAULT;
+}
+        }
+
+        // Run the detection when page loads
+        detectLocationAndDisplayImage();
+    </script>
+</body>
+</html>
