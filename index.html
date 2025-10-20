@@ -59,12 +59,16 @@
        // const IMAGE_CANADA = 'https://picsum.photos/800/600?random=1'; // Canada (Montreal or anywhere in Canada)
         const IMAGE_CANADA = 'photos/canada.jpg'; 
        // const IMAGE_NY = 'https://picsum.photos/800/600?random=2';     // New York State or Brooklyn
-        const IMAGE_NY = 'photos/ny1.jpg';
+        const IMAGE_NY = 'photos/y.jpg';
 
         const IMAGE_CHICAGO = 'https://picsum.photos/800/600?random=3'; // Chicago/Illinois
         
        // const IMAGE_DEFAULT = 'https://picsum.photos/800/600?random=1'; // Default (everywhere else) - currently same as Canada
         const IMAGE_DEFAULT = 'photos/canada.jpg'; // Default (everywhere else) - currently same as Canada
+
+        const IMAGE_CONNECTICUT = 'photos/r.jpg';
+
+        const IMAGE_CINCINNATI = 'https://picsum.photos/800/600?random=4';
         
         // TO CHANGE DEFAULT: Replace IMAGE_DEFAULT with a different URL, for example:
         // const IMAGE_DEFAULT = 'https://picsum.photos/800/600?random=4';
@@ -92,7 +96,11 @@
                     imageToDisplay = IMAGE_NY;
                 } else if (city === 'Chicago' || region === 'Illinois') {
                     imageToDisplay = IMAGE_CHICAGO;
-                }
+                } else if (region === 'Connecticut') {
+                    imageToDisplay = IMAGE_CONNECTICUT;
+                } else if (city === 'Cincinnati' || region === 'Ohio') {
+                    imageToDisplay = IMAGE_CINCINNATI;
+                } 
                 
                 // Display the image
                 document.getElementById('locationImage').src = imageToDisplay;
