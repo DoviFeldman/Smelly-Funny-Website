@@ -69,6 +69,8 @@
         const IMAGE_CONNECTICUT = 'photos/r.jpg';
 
         const IMAGE_CINCINNATI = 'https://picsum.photos/800/600?random=4';
+
+        const IMAGE_ARIZONA = 'photos/Screen Shot 2025-10-20 at 10.13.18 PM.png';
         
         // TO CHANGE DEFAULT: Replace IMAGE_DEFAULT with a different URL, for example:
         // const IMAGE_DEFAULT = 'https://picsum.photos/800/600?random=4';
@@ -100,7 +102,11 @@
                     imageToDisplay = IMAGE_CONNECTICUT;
                 } else if (city === 'Cincinnati' || region === 'Ohio') {
                     imageToDisplay = IMAGE_CINCINNATI;
+                } else if (region === 'Arizona') {
+                    imageToDisplay = IMAGE_ARIZONA;
                 } 
+
+                // Arizona
                 
                 // Display the image
                 document.getElementById('locationImage').src = imageToDisplay;
