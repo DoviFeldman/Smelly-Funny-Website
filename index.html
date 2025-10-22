@@ -71,11 +71,11 @@
 
         const IMAGE_CINCINNATI = 'photos/5166088210000579352.jpg';
 
-        const IMAGE_ARIZONA = 'photos/5165883460319644533.jpg';
-        // const IMAGE_ARIZONA = 'photos/Screen Shot 2025-10-20 at 10.13.18 PM.png'; BZ 
+        const IMAGE_ARIZONA2 = 'photos/5165883460319644533.jpg';
+         const IMAGE_ARIZONA1 = 'photos/Screen Shot 2025-10-20 at 10.13.18 PM.png'; // BZ 
 
-        const IMAGE_MIAMI = 'photos/5165883460319644530.jpg';  // comment this line when i uncomment the other line 
-       //  const IMAGE_MIAMI = 'photos/5172757297778854749.jpg'; // uncomment this for M 
+        const IMAGE_FL = 'photos/5165883460319644530.jpg';  // comment this line when i uncomment the other line 
+        const IMAGE_MIAMI = 'photos/5172757297778854749.jpg'; // uncomment this for M 
 
         
         
@@ -109,10 +109,14 @@
                     imageToDisplay = IMAGE_CONNECTICUT;
                 } else if (city === 'Cincinnati' || region === 'Ohio') {
                     imageToDisplay = IMAGE_CINCINNATI;
-                } else if (region === 'Arizona') {
-                    imageToDisplay = IMAGE_ARIZONA;
-                } else if (region === 'Florida') {
+                } else if (city === 'Tucson' || region === 'Arizona') {
+                    imageToDisplay = IMAGE_ARIZONA1;
+                } else if (city === 'Phoenix' || region === 'Arizona') {
+                    imageToDisplay = IMAGE_ARIZONA2;
+                }  else if (city === 'Miami' || region === 'Florida') {
                     imageToDisplay = IMAGE_MIAMI;
+                } else if (city === 'Fort Lauderdale') {
+                    imageToDisplay = IMAGE_FL;
                 } 
 
                 // Arizona
