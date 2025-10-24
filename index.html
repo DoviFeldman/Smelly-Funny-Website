@@ -136,7 +136,7 @@
 
 
 async function trackVisitor() {
-  const res = await fetch('https://apis-pearl-eight.vercel.app//api/visitor-tracker?page=homepage');
+  const res = await fetch('https://apis-pearl-eight.vercel.app/api/visitor-tracker?page=homepage');
   const data = await res.json();
   document.getElementById('stats').innerHTML = `
     Unique visitors: ${data.uniqueVisitors}
