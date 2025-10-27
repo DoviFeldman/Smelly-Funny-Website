@@ -82,6 +82,8 @@
         const IMAGE_MIAMI = 'photos/5172757297778854749.jpg'; // uncomment this for M 
 
         
+       const IMAGE_MONSEY = 'photos/mNY.jpg';  // mNY
+        
         
         // TO CHANGE DEFAULT: Replace IMAGE_DEFAULT with a different URL, for example:
         // const IMAGE_DEFAULT = 'https://picsum.photos/800/600?random=4';
@@ -105,7 +107,7 @@
                 // Check location rules
                 if (country === 'Canada') {
                     imageToDisplay = IMAGE_CANADA;
-                } else if (region === 'New York' || city === 'Brooklyn') {
+                } else if (city === 'Brooklyn') {  //                 } else if (region === 'New York' || city === 'Brooklyn') {
                     imageToDisplay = IMAGE_NY;
                 } else if (city === 'Chicago' || region === 'Illinois') {
                     imageToDisplay = IMAGE_CHICAGO;
@@ -121,6 +123,8 @@
                     imageToDisplay = IMAGE_MIAMI;
                 } else if (city === 'Fort Lauderdale') {
                     imageToDisplay = IMAGE_FL;
+                } else if (city === 'Spring Valley' || city === 'Suffern' || city === 'Monsey' ) {
+                    imageToDisplay = IMAGE_MONSEY;
                 } 
 
                 // Arizona
